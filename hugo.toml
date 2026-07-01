@@ -1,0 +1,72 @@
+baseURL = "https://你的域名.github.io/"
+languageCode = "zh-cn"
+title = "Go 编程圣典"
+theme = "PaperMod"
+
+minifyOutput = true
+enableRobotsTXT = true
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "小满zs"
+  description = "系统化学习 Go 语言，记录编程实践与生活思考"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = true
+
+  [params.label]
+    text = "Go 编程圣典"
+
+  [params.profileMode]
+    enabled = true
+    title = "Go 编程圣典"
+    subtitle = """系统化学习 Go 语言 · 记录实践与思考
+
+从这里开始你的 Go 之旅 🚀"""
+    imageUrl = "/images/avatar.svg"
+    imageWidth = 160
+    imageHeight = 160
+    imageTitle = "小满zs"
+
+    [[params.profileMode.buttons]]
+      name = "开始阅读"
+      url = "posts"
+
+    [[params.profileMode.buttons]]
+      name = "文章归档"
+      url = "archives"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:your@email.com"
+
+[[menu.main]]
+  name = "文章"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "归档"
+  url = "/archives/"
+  weight = 20
+
+[[menu.main]]
+  name = "标签"
+  url = "/tags/"
+  weight = 30

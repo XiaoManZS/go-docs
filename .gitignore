@@ -1,0 +1,23 @@
+# Hugo 构建产物（hugo / hugo server 生成，勿提交）
+public/
+
+# Hugo 构建锁文件
+.hugo_build.lock
+
+# Hugo 资源处理缓存
+resources/
+
+# 操作系统
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 编辑器
+.idea/
+*.swp
+*.swo
+*~
+
+# 环境变量 / 密钥（若有本地配置）
+.env
+.env.*

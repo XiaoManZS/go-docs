@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00ADD8"/>
+      <stop offset="1" stop-color="#00758F"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="40" y1="30" x2="160" y2="170" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="url(#bg)"/>
+  <circle cx="100" cy="100" r="96" fill="url(#shine)"/>
+  <text x="100" y="118" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Go</text>
+  <circle cx="100" cy="100" r="96" stroke="#ffffff" stroke-opacity="0.18" stroke-width="4"/>
+</svg>
