@@ -4,7 +4,8 @@ draft = false
 title = 'Go 基础入门'
 tags = ["Go", "入门"]
 categories = ["教程"]
-summary = "认识 Go 语言的特点，写出第一个 Hello World 程序。"
+summary = "认识 Go 语言的特点，以及如何安装。"
+weight = 1
 +++
 
 Go（又称 Golang）是**Google**在 2007 年推出、2009 年正式开源的静态编译型编程语言，由罗伯特・格瑞史莫（Rob Pike）、肯・汤普森（Ken Thompson，C 语言、Unix 之父）、罗伯特・格雷厄姆三人主导开发。

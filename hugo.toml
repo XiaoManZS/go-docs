@@ -50,11 +50,11 @@ enableRobotsTXT = true
 
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/"
+    url = "https://github.com/XiaoManZS/go-docs"
 
   [[params.socialIcons]]
     name = "email"
-    url = "mailto:your@email.com"
+    url = "mailto:1195566313@qq.com"
 
 [[menu.main]]
   name = "文章"
