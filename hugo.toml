@@ -1,4 +1,4 @@
-baseURL = "https://你的域名.github.io/"
+baseURL = "https://go-docs.pages.dev/"
 languageCode = "zh-cn"
 title = "Go 编程圣典"
 theme = "PaperMod"
