@@ -9,6 +9,13 @@ body {
 code,
 pre,
 .copy-code,
-kbd {
-  font-family: "JetBrains Mono", "Noto Sans SC", Consolas, "Courier New", monospace;
+kbd,
+.highlight,
+.chroma {
+  font-family: "IBM Plex Mono", "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  font-size: 1em;
+  line-height: 1.65;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
 }
+

@@ -3,16 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	//数组
-	var arr [5]int // 定义一个长度为5的整型数组 但是未赋值 所以输出为[0 0 0 0 0]
-	fmt.Println(arr)
-	//----------------------------------------------------------------------
-	arr2 := [5]int{1, 2, 3, 4, 5} // 定义一个长度为5的整型数组 并赋值为[1 2 3 4 5]
-	fmt.Println(arr2)
-	//----------------------------------------------------------------------
-	//切片
-	arr3 := []int{}                          // 定义一个空切片
-	arr3 = append(arr3, 6, 6, 6, 6, 6, 6, 6) // 追加元素
-	fmt.Println(arr3)                        // 输出为[6 6 6 6 6 6 6]
-	fmt.Println(len(arr3))                   // 获取切片的长度 输出为7
+	var person = map[string]string{
+		"name": "张三",
+		"age":  "18",
+		"sex":  "男",
+	}
+	fmt.Println(len(person))
 }
