@@ -8,7 +8,10 @@ summary = "认识 Go 语言的特点，以及如何安装。"
 weight = 1
 +++
 
-Go（又称 Golang）是**Google**在 2007 年推出、2009 年正式开源的静态编译型编程语言，由罗伯特・格瑞史莫（Rob Pike）、肯・汤普森（Ken Thompson，C 语言、Unix 之父）、罗伯特・格雷厄姆三人主导开发。
+Go（又称 Golang）是**Google**在 2007 年推出、2009 年正式开源的静态编译型编程语言，由
+- 肯·汤普森 (Ken Thompson)：图灵奖得主，是C语言的前身B语言的作者、UNIX操作系统的发明人之一。他还参与了Plan 9操作系统和UTF-8编码的设计
+- 罗伯·派克 (Rob Pike)：曾是贝尔实验室UNIX开发团队成员，也是Plan 9操作系统和Inferno操作系统开发的主要领导人。他与肯·汤普森共同设计了UTF-8编码
+- 罗伯特·格瑞史莫 (Robert Griesemer)：曾为谷歌的V8 JavaScript引擎、Chubby以及HotSpot JVM（Java虚拟机）做出重要贡献
 
 我们带入神话故事来理解Go语言：
 
