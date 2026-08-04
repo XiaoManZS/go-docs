@@ -5,7 +5,7 @@ title = 'Go 循环'
 tags = ["Go", "循环"]
 categories = ["教程"]
 summary = "详解Go循环：for、range、break、continue、goto"
-weight = 6
+weight = 7
 +++
 
 # 五谷轮回
