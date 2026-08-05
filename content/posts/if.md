@@ -5,7 +5,7 @@ title = 'Go 条件判断'
 tags = ["Go", "条件判断"]
 categories = ["教程"]
 summary = "详解Go条件判断：if、else、else if、switch、case、default"
-weight = 6
+weight = 7
 +++
 
 # 北冥神功(太玄经)
