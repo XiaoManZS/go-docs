@@ -1,0 +1,19 @@
+.theme-toggle {
+  gap: 0.35rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.theme-label {
+  line-height: 1;
+}
+
+[data-theme="dark"] .theme-label-dark {
+  display: none;
+}
+
+[data-theme="light"] .theme-label-light {
+  display: none;
+}

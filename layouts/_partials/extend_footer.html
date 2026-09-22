@@ -1,5 +1,26 @@
 <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
 <script>
+  (function () {
+    const btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+
+    const tip = () =>
+      document.documentElement.dataset.theme === "dark"
+        ? "切换到亮色主题 (Alt + T)"
+        : "切换到暗色主题 (Alt + T)";
+
+    const sync = () => {
+      const text = tip();
+      btn.title = text;
+      btn.setAttribute("aria-label", text);
+    };
+
+    sync();
+    // PaperMod 的切换逻辑在本脚本之后注册，用 rAF 等它改完 data-theme 再更新文案
+    btn.addEventListener("click", () => requestAnimationFrame(sync));
+  })();
+</script>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     mediumZoom(".post-content img", {
       margin: 24,
