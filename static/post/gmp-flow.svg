@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" role="img" aria-label="GMP flow">
+  <defs>
+    <style>
+      .title { font: 700 20px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1f2937; }
+      .t { font: 600 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #111827; }
+      .s { font: 400 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #4b5563; }
+      .box { fill: #fff; stroke: #cbd5e1; }
+      .a1 { fill: #ccfbf1; stroke: #5eead4; }
+      .a2 { fill: #dbeafe; stroke: #93c5fd; }
+      .a3 { fill: #ffedd5; stroke: #fdba74; }
+      .a4 { fill: #ede9fe; stroke: #c4b5fd; }
+      .a5 { fill: #fee2e2; stroke: #fca5a5; }
+    </style>
+    <marker id="f" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="920" height="360" rx="16" fill="#fafafa"/>
+  <text x="36" y="40" class="title">把整条调度链路串起来看</text>
+  <rect x="30" y="90" width="150" height="90" rx="12" class="a1"/>
+  <text x="105" y="128" text-anchor="middle" class="t">1. go xxx</text>
+  <text x="105" y="152" text-anchor="middle" class="s">产生一个 G</text>
+  <rect x="210" y="90" width="150" height="90" rx="12" class="a2"/>
+  <text x="285" y="120" text-anchor="middle" class="t">2. 入队</text>
+  <text x="285" y="144" text-anchor="middle" class="s">优先本地队列</text>
+  <text x="285" y="164" text-anchor="middle" class="s">满了 → 全局队列</text>
+  <rect x="390" y="90" width="150" height="90" rx="12" class="a3"/>
+  <text x="465" y="120" text-anchor="middle" class="t">3. M 绑 P</text>
+  <text x="465" y="144" text-anchor="middle" class="s">从本地取 G</text>
+  <text x="465" y="164" text-anchor="middle" class="s">开始执行</text>
+  <rect x="570" y="90" width="150" height="90" rx="12" class="a4"/>
+  <text x="645" y="120" text-anchor="middle" class="t">4. 没活了？</text>
+  <text x="645" y="144" text-anchor="middle" class="s">先看全局</text>
+  <text x="645" y="164" text-anchor="middle" class="s">再 Work Stealing</text>
+  <rect x="750" y="90" width="140" height="90" rx="12" class="a5"/>
+  <text x="820" y="128" text-anchor="middle" class="t">5. 阻塞？</text>
+  <text x="820" y="152" text-anchor="middle" class="s">Hand-off 换 M</text>
+  <path d="M180 135 H205" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#f)"/>
+  <path d="M360 135 H385" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#f)"/>
+  <path d="M540 135 H565" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#f)"/>
+  <path d="M720 135 H745" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#f)"/>
+  <rect x="90" y="230" width="740" height="90" rx="12" class="box"/>
+  <text x="460" y="268" text-anchor="middle" class="t">业务侧只写 go，运行时负责：轻量 G → 少量 P（≈核数）→ 映射到若干 M</text>
+  <text x="460" y="296" text-anchor="middle" class="s">本地队列减少抢锁 · 工作窃取避免空闲 · 交接避免阻塞拖死多核</text>
+</svg>

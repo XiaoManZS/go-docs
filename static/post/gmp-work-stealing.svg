@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" role="img" aria-label="Work Stealing">
+  <defs>
+    <style>
+      .title { font: 700 20px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1f2937; }
+      .h { font: 700 15px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #111827; }
+      .t { font: 400 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #374151; }
+      .w { font: 700 14px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #fff; }
+      .p { fill: #2563eb; }
+      .m { fill: #d97706; }
+      .g { fill: #0d9488; }
+      .empty { fill: #f3f4f6; stroke: #d1d5db; stroke-dasharray: 5 4; }
+      .busy { fill: #fff; stroke: #93c5fd; }
+    </style>
+    <marker id="steal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect width="880" height="420" rx="16" fill="#fafafa"/>
+  <text x="36" y="40" class="title">Work Stealing：本地空了、全局也空 → 偷别人一半任务</text>
+  <rect x="60" y="80" width="280" height="240" rx="14" class="empty"/>
+  <rect x="90" y="105" width="54" height="30" rx="6" class="p"/>
+  <text x="117" y="125" text-anchor="middle" class="w">P1</text>
+  <rect x="156" y="105" width="54" height="30" rx="6" class="m"/>
+  <text x="183" y="125" text-anchor="middle" class="w">M1</text>
+  <text x="200" y="175" text-anchor="middle" class="h">本地队列：空</text>
+  <text x="200" y="210" text-anchor="middle" class="t">全局队列：也空</text>
+  <text x="200" y="250" text-anchor="middle" class="t" fill="#b91c1c">再不干活就要空转了</text>
+  <path d="M360 200 H500" stroke="#dc2626" stroke-width="3" fill="none" marker-end="url(#steal)" stroke-dasharray="6 4"/>
+  <text x="430" y="185" text-anchor="middle" class="t" fill="#dc2626">偷走约一半</text>
+  <rect x="520" y="80" width="300" height="240" rx="14" class="busy"/>
+  <rect x="555" y="105" width="54" height="30" rx="6" class="p"/>
+  <text x="582" y="125" text-anchor="middle" class="w">P2</text>
+  <rect x="621" y="105" width="54" height="30" rx="6" class="m"/>
+  <text x="648" y="125" text-anchor="middle" class="w">M2</text>
+  <text x="670" y="175" text-anchor="middle" class="h">本地队列：很忙</text>
+  <rect x="560" y="200" width="44" height="32" rx="6" class="g"/><text x="582" y="221" text-anchor="middle" class="w">G1</text>
+  <rect x="612" y="200" width="44" height="32" rx="6" class="g"/><text x="634" y="221" text-anchor="middle" class="w">G2</text>
+  <rect x="664" y="200" width="44" height="32" rx="6" class="g"/><text x="686" y="221" text-anchor="middle" class="w">G3</text>
+  <rect x="716" y="200" width="44" height="32" rx="6" class="g"/><text x="738" y="221" text-anchor="middle" class="w">G4</text>
+  <text x="670" y="270" text-anchor="middle" class="t">例如被偷走 G3、G4</text>
+  <rect x="120" y="350" width="640" height="42" rx="10" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="440" y="376" text-anchor="middle" class="t">目的：别让 CPU 闲着 —— 有活大家一起干</text>
+</svg>

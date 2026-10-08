@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" role="img" aria-label="GMP overview">
+  <defs>
+    <style>
+      .title { font: 700 22px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1f2937; }
+      .label { font: 700 18px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #fff; }
+      .sub { font: 400 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #374151; }
+      .hint { font: 400 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+      .arrow { stroke: #4b5563; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .box-g { fill: #0d9488; }
+      .box-p { fill: #2563eb; }
+      .box-m { fill: #d97706; }
+      .chip { fill: #f3f4f6; stroke: #d1d5db; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4b5563"/>
+    </marker>
+  </defs>
+  <rect width="860" height="420" rx="16" fill="#fafafa"/>
+  <text x="40" y="42" class="title">GMP 三者关系：工人(M) 必须坐到工位(P) 才能领任务(G)</text>
+  <rect x="60" y="80" width="180" height="70" rx="12" class="box-g"/>
+  <text x="150" y="112" text-anchor="middle" class="label">G · Goroutine</text>
+  <text x="150" y="136" text-anchor="middle" class="sub" fill="#ecfdf5">协程 / 任务</text>
+  <rect x="70" y="170" width="160" height="36" rx="8" class="chip"/>
+  <text x="150" y="193" text-anchor="middle" class="sub">go func() 创建一个 G</text>
+  <rect x="70" y="218" width="160" height="36" rx="8" class="chip"/>
+  <text x="150" y="241" text-anchor="middle" class="sub">初始栈约 2KB</text>
+  <rect x="70" y="266" width="160" height="36" rx="8" class="chip"/>
+  <text x="150" y="289" text-anchor="middle" class="sub">可轻松开很多个</text>
+  <rect x="340" y="80" width="180" height="70" rx="12" class="box-p"/>
+  <text x="430" y="112" text-anchor="middle" class="label">P · Processor</text>
+  <text x="430" y="136" text-anchor="middle" class="sub" fill="#eff6ff">逻辑处理器 / 工位</text>
+  <rect x="350" y="170" width="160" height="36" rx="8" class="chip"/>
+  <text x="430" y="193" text-anchor="middle" class="sub">管理本地队列</text>
+  <rect x="350" y="218" width="160" height="36" rx="8" class="chip"/>
+  <text x="430" y="241" text-anchor="middle" class="sub">默认 ≈ CPU 核数</text>
+  <rect x="350" y="266" width="160" height="36" rx="8" class="chip"/>
+  <text x="430" y="289" text-anchor="middle" class="sub">队列容量常见 256</text>
+  <rect x="620" y="80" width="180" height="70" rx="12" class="box-m"/>
+  <text x="710" y="112" text-anchor="middle" class="label">M · Machine</text>
+  <text x="710" y="136" text-anchor="middle" class="sub" fill="#fffbeb">OS 内核线程 / 工人</text>
+  <rect x="630" y="170" width="160" height="36" rx="8" class="chip"/>
+  <text x="710" y="193" text-anchor="middle" class="sub">真正执行代码</text>
+  <rect x="630" y="218" width="160" height="36" rx="8" class="chip"/>
+  <text x="710" y="241" text-anchor="middle" class="sub">必须绑定 P</text>
+  <rect x="630" y="266" width="160" height="36" rx="8" class="chip"/>
+  <text x="710" y="289" text-anchor="middle" class="sub">可被创建 / 复用</text>
+  <path d="M245 115 H330" class="arrow"/>
+  <path d="M525 115 H610" class="arrow"/>
+  <text x="287" y="105" text-anchor="middle" class="hint">放进队列</text>
+  <text x="567" y="105" text-anchor="middle" class="hint">绑定执行</text>
+  <rect x="180" y="340" width="500" height="48" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="430" y="370" text-anchor="middle" class="sub">口诀：G 是任务，P 是工位，M 是工人</text>
+</svg>

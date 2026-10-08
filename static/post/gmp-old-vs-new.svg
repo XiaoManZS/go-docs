@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="GM vs GMP">
+  <defs>
+    <style>
+      .title { font: 700 20px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1f2937; }
+      .h { font: 700 16px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #111827; }
+      .t { font: 400 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #374151; }
+      .w { font: 700 14px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #fff; }
+      .bad { fill: #fee2e2; stroke: #fca5a5; }
+      .good { fill: #ecfdf5; stroke: #6ee7b7; }
+      .m { fill: #d97706; }
+      .p { fill: #2563eb; }
+      .lock { fill: #dc2626; }
+      .gq { fill: #fff; stroke: #9ca3af; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <rect width="900" height="520" rx="16" fill="#fafafa"/>
+  <text x="36" y="40" class="title">调度演进：从「大家抢一把全局锁」到「各忙各的本地队列」</text>
+  <rect x="28" y="64" width="400" height="420" rx="14" class="bad"/>
+  <text x="228" y="96" text-anchor="middle" class="h">旧：GM 模型（无 P）</text>
+  <rect x="118" y="120" width="220" height="54" rx="10" class="gq"/>
+  <text x="228" y="142" text-anchor="middle" class="t">全局队列 Global Queue</text>
+  <text x="228" y="162" text-anchor="middle" class="w" fill="#0d9488">G1  G2  G3  G4  G5 ...</text>
+  <rect x="198" y="188" width="60" height="28" rx="6" class="lock"/>
+  <text x="228" y="207" text-anchor="middle" class="w">大锁</text>
+  <rect x="70" y="260" width="70" height="40" rx="8" class="m"/>
+  <text x="105" y="285" text-anchor="middle" class="w">M1</text>
+  <rect x="193" y="260" width="70" height="40" rx="8" class="m"/>
+  <text x="228" y="285" text-anchor="middle" class="w">M2</text>
+  <rect x="316" y="260" width="70" height="40" rx="8" class="m"/>
+  <text x="351" y="285" text-anchor="middle" class="w">M3</text>
+  <path d="M105 260 V230 H228 V216" stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M228 260 V216" stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M351 260 V230 H228 V216" stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <text x="228" y="340" text-anchor="middle" class="t">多个 M 同时抢同一条全局队列</text>
+  <text x="228" y="365" text-anchor="middle" class="t">锁竞争重 → 多核也跑不快</text>
+  <text x="228" y="420" text-anchor="middle" class="t" fill="#b91c1c">痛点：调度本身成为瓶颈</text>
+  <rect x="472" y="64" width="400" height="420" rx="14" class="good"/>
+  <text x="672" y="96" text-anchor="middle" class="h">新：GMP 模型（有 P）</text>
+  <rect x="562" y="118" width="220" height="40" rx="8" class="gq"/>
+  <text x="672" y="143" text-anchor="middle" class="t">全局队列（辅助，满了才用）</text>
+  <rect x="500" y="190" width="160" height="120" rx="10" fill="#fff" stroke="#93c5fd"/>
+  <rect x="520" y="205" width="50" height="28" rx="6" class="p"/>
+  <text x="545" y="224" text-anchor="middle" class="w">P1</text>
+  <rect x="580" y="205" width="50" height="28" rx="6" class="m"/>
+  <text x="605" y="224" text-anchor="middle" class="w">M1</text>
+  <text x="580" y="258" text-anchor="middle" class="t">本地队列</text>
+  <text x="580" y="282" text-anchor="middle" class="w" fill="#0d9488">G1 G2 G3</text>
+  <rect x="680" y="190" width="160" height="120" rx="10" fill="#fff" stroke="#93c5fd"/>
+  <rect x="700" y="205" width="50" height="28" rx="6" class="p"/>
+  <text x="725" y="224" text-anchor="middle" class="w">P2</text>
+  <rect x="760" y="205" width="50" height="28" rx="6" class="m"/>
+  <text x="785" y="224" text-anchor="middle" class="w">M2</text>
+  <text x="760" y="258" text-anchor="middle" class="t">本地队列</text>
+  <text x="760" y="282" text-anchor="middle" class="w" fill="#0d9488">G4 G5 G6</text>
+  <path d="M580 190 V158" stroke="#6b7280" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <path d="M760 190 V158" stroke="#6b7280" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <text x="672" y="345" text-anchor="middle" class="t">每个 M 绑一个 P，优先跑本地队列</text>
+  <text x="672" y="370" text-anchor="middle" class="t">多数时候不用抢全局大锁</text>
+  <text x="672" y="420" text-anchor="middle" class="t" fill="#047857">收益：多核真正并行调度</text>
+</svg>
